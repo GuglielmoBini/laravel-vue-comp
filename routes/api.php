@@ -25,3 +25,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/videogames', [VideogameController::class, 'index']);
 
 // Route to api show videogames
+Route::get('/videogames/{videogame}', [VideogameController::class, 'show']);

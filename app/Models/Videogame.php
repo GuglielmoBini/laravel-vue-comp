@@ -21,9 +21,15 @@ class Videogame extends Model
         'weight'
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime:d/m/y H:i',
+        'updated_at' => 'datetime:d/m/y H:i:s',
+    ];
+
+
     // videogames
-    public function videogames()
-    {
-        return $this->belongsTo(Videogame::class);
-    }
+    // public function videogames()
+    // {
+    //     return $this->belongsTo(Videogame::class);
+    // }
 }

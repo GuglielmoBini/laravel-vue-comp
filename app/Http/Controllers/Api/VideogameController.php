@@ -13,7 +13,7 @@ class VideogameController extends Controller
      */
     public function index()
     {
-        $Videogames = Videogame::orderBy('updated_at', 'DESC')->with('videogames')->get();
+        $Videogames = Videogame::orderBy('updated_at', 'DESC')->get();
 
         //foreach ($Videogames as $Videogame) {
         //if ($Videogame->image_url) $Videogame->image_url = url('storage/' . $Videogame->image_url);
@@ -35,7 +35,7 @@ class VideogameController extends Controller
      */
     public function show(string $id)
     {
-        $videogame = Videogame::with('videogames')->find($id);
+        $videogame = Videogame::find($id);
         if (!$videogame) return response(null, 404);
 
 
