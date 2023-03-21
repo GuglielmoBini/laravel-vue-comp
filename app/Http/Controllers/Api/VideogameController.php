@@ -15,9 +15,9 @@ class VideogameController extends Controller
     {
         $Videogames = Videogame::orderBy('updated_at', 'DESC')->with('videogames')->get();
 
-        foreach ($Videogames as $Videogame) {
-            if ($Videogame->image_url) $Videogame->image_url = url('storage/' . $Videogame->image_url);
-        }
+        //foreach ($Videogames as $Videogame) {
+        //if ($Videogame->image_url) $Videogame->image_url = url('storage/' . $Videogame->image_url);
+        //}
 
         return response()->json($Videogames);
     }
@@ -35,15 +35,15 @@ class VideogameController extends Controller
      */
     public function show(string $id)
     {
-        //$videogame = Videogame::with('videogames')->find($id);
-        //if (!$videogame) return response(null, 404);
+        $videogame = Videogame::with('videogames')->find($id);
+        if (!$videogame) return response(null, 404);
 
 
         // managing images reception: if game has an image, reassign image path value as complete path
         //if ($videogame->image_url) $videogame->image_url = url('storage/' . $videogame->image_url);
 
 
-        //return response()->json($videogame);
+        return response()->json($videogame);
     }
 
     /**
