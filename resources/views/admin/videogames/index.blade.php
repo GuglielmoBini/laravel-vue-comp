@@ -21,7 +21,7 @@
                             <a href="{{ route('admin.videogames.show', $videogame->id) }}"
                                 class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
                             <a href="{{ route('admin.videogames.edit', $videogame->id) }}"
-                                class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-pencil"></i></a>
+                                class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-pencil"></i></a>                               
                         </td> 
                     </tr>
                 @empty
