@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Videogame;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class VideogameController extends Controller
 {
@@ -12,7 +14,8 @@ class VideogameController extends Controller
      */
     public function index()
     {
-        //
+        $videogames = Videogame::orderBy('updated_at', 'DESC')->get();
+        return view('admin.videogames.index', compact('videogames'));
     }
 
     /**
@@ -34,9 +37,9 @@ class VideogameController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Videogame $videogame)
     {
-        //
+        return view('admin.videogames.show', compact('videogame'));
     }
 
     /**
@@ -58,8 +61,11 @@ class VideogameController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Videogame $videogame)
     {
-        //
+        if ($videogame->image_url) Storage::delete($videogame->image_url);
+
+        $videogame->delete();
+        return to_route('admin.videogames.index');
     }
 }
