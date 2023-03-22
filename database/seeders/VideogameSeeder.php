@@ -20,7 +20,7 @@ class VideogameSeeder extends Seeder
             $videogame->platform = $faker->word();
             $videogame->publisher = $faker->word();
             $videogame->genre = $faker->word();
-            $videogame->image_url = $faker->imageUrl(250, 250);
+            // $videogame->image_url = $faker->imageUrl(250, 250);
             $videogame->description = $faker->paragraphs(5, true);
             $videogame->release_date = $faker->date();
             $videogame->weight = $faker->randomNumber(3, false);

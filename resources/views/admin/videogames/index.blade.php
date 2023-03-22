@@ -1,13 +1,15 @@
 @extends('layouts.app')
+@section('title', 'VideoGames')
 @section('content')
     <div class="container">
-        <table class="container table table-hover mt-5">
+        <a href="{{ route('admin.videogames.create') }}" class="btn btn-success my-3"><i class="fa-solid fa-plus"></i> Aggiungi</a>
+        <table class="container table table-hover">
             <thead>
                 <th class="text-primary">#id</th>
                 <th class="text-primary">Title</th>
                 <th class="text-primary">Platform</th>
-                <th class="text-center text-primary">Created at</th>
-                <th class="text-center text-primary">Updated at</th>
+                <th class="text-primary">Created at</th>
+                <th class="text-primary">Updated at</th>
                 <th class="text-end text-primary">Actions</th>
             </thead>
             <tbody>
@@ -16,12 +18,14 @@
                         <td>{{ $videogame->id }}</td>
                         <td>{{ $videogame->title }}</td>
                         <td>{{ $videogame->platform }}</td>
+                        <td>{{ $videogame->created_at }}</td>
+                        <td>{{ $videogame->updated_at }}</td>
     
                         <td class="text-end">
                             <a href="{{ route('admin.videogames.show', $videogame->id) }}"
                                 class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
                             <a href="{{ route('admin.videogames.edit', $videogame->id) }}"
-                                class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-pencil"></i></a>                               
+                                class="btn btn-outline-warning btn-sm"><i class="fa-solid fa-pencil"></i></a>                               
                         </td> 
                     </tr>
                 @empty
