@@ -29,6 +29,9 @@
     <div id="app">
         @include('includes.navbar')
         <main class="container">
+            @auth    
+                @include('includes.alerts.errors')
+            @endauth
             @yield('content')
         </main>
     </div>
