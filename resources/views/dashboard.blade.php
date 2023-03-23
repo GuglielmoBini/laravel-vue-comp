@@ -6,11 +6,11 @@
         {{ __('Dashboard') }}
     </h2>
     <div class="row justify-content-center">
-        <div class="col">
-            <div class="card">
+        <div class="col d-flex justify-content-center">
+            <div class="card mt-4 w-75 text-center">
                 <div class="card-header">{{ __('User Dashboard') }}</div>
 
-                <div class="card-body">
+                <div class="card-body fs-5 text-success">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
