@@ -13,13 +13,13 @@ class VideogameController extends Controller
      */
     public function index()
     {
-        $Videogames = Videogame::orderBy('updated_at', 'DESC')->get();
+        $videogames = videogame::orderBy('updated_at', 'DESC')->get();
 
-        //foreach ($Videogames as $Videogame) {
-        //if ($Videogame->image_url) $Videogame->image_url = url('storage/' . $Videogame->image_url);
-        //}
+        foreach ($videogames as $videogame) {
+            if ($videogame->image_url) $videogame->image_url = url('storage/' . $videogame->image_url);
+        }
 
-        return response()->json($Videogames);
+        return response()->json($videogames);
     }
 
     /**
