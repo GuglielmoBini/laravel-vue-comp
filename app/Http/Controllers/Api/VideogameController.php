@@ -40,7 +40,7 @@ class VideogameController extends Controller
 
 
         // managing images reception: if game has an image, reassign image path value as complete path
-        //if ($videogame->image_url) $videogame->image_url = url('storage/' . $videogame->image_url);
+        if ($videogame->image_url) $videogame->image_url = url('storage/' . $videogame->image_url);
 
 
         return response()->json($videogame);
